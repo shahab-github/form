@@ -21,6 +21,8 @@ please refer to sql file in the repo
 
 ### now run the app
 ` python app.py `
+or
+` flask run --host=0.0.0.0 `
 
 ### it will run on http://localhost:5000
 
