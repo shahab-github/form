@@ -1,5 +1,13 @@
 ## This is the sample web app for creating users using html form and retreive all users from the databases
 
+### pre-requisite 
+Install the mysql-server
+` apt install mariadb-server
+  mysql_secure_installation `
+  
+## create myusers database
+please refer to sql file in the repo
+
 ### Steps to run the app
 ` # git clone https://github.com/shahab-github/form.git `
 
