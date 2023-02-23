@@ -16,3 +16,12 @@
 
 ### it will run on http://localhost:5000
 
+#### home page
+![home_page-screenshot](images/home.png)
+
+
+#### admin page
+![admin-page](images/admin.png)
+
+
+
