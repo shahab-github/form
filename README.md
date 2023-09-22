@@ -2,6 +2,10 @@
 
 **<span style="color:darkblue">Text in dark blue</span>**
 
+<span style="color:green;font-weight:700;font-size:20px">
+    markdown color font styles
+</span>
+
 ### pre-requisite 
 Install the mysql-server
 ` apt install mariadb-server
