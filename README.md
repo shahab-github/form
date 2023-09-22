@@ -1,6 +1,6 @@
 ## This is the sample web app for creating users using html form and retreive all users from the databases
 
-<span style="color:darkblue">Text in dark blue</span>
+**<span style="color:darkblue">Text in dark blue</span>**
 
 ### pre-requisite 
 Install the mysql-server
