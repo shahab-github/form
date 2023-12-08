@@ -1,17 +1,49 @@
-name: Delete branch
+name: Delete abandoned branches
+
 on:
+  # Run daily at midnight
+  schedule:
+    - cron: "0 0 * * *"
+
+  # Allow workflow to be manually run from the GitHub UI
   workflow_dispatch:
+
 jobs:
-  cleanup-branches:
+  cleanup_old_branches:
     runs-on: ubuntu-latest
+    name: Satisfy my repo CDO
     steps:
-      # To use this action, you must check out the repository
-      - name: Checkout
-        uses: actions/checkout@v2
+      - name: Delete those pesky dead branches
+        uses: phpdocker-io/github-actions-delete-abandoned-branches@v2
+        id: delete_stuff
         with:
-          fetch-depth: 0
-      - name: Cleanup
-        uses: digicert/prune_old_branches_action@v1
-        with:
-          numDays: '200'
-          numTags: '3'
+          github_token: ${{ github.token }}
+          last_commit_age_days: 100
+          ignore_branches: next-version,dont-deleteme
+          github_base_url: https://github.mycompany.com/api/v3
+
+          # Disable dry run and actually get stuff deleted
+          dry_run: no
+
+      - name: Get output
+        run: "echo 'Deleted branches: ${{ steps.delete_stuff.outputs.deleted_branches }}'"
+
+
+
+# name: Delete branch
+# on:
+#   workflow_dispatch:
+# jobs:
+#   cleanup-branches:
+#     runs-on: ubuntu-latest
+#     steps:
+#       # To use this action, you must check out the repository
+#       - name: Checkout
+#         uses: actions/checkout@v2
+#         with:
+#           fetch-depth: 0
+#       - name: Cleanup
+#         uses: digicert/prune_old_branches_action@v1
+#         with:
+#           numDays: '200'
+#           numTags: '3'
